@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Book of Treasures</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="background home-bg">
+            <h1 class="game-title">The Book of Treasures</h1>
+            <div class="home-buttons">
+                <button onclick="startGame()">Start Game</button>
+                <button onclick="viewHighScores()">High Scores</button>
+                <button onclick="endlessMode()">Endless Mode</button>
+                <button onclick="timelessMode()">Timeless Mode</button>
+                <button onclick="help()">Help</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Page -->
+    <div id="game" class="page hidden">
+        <h2 id="playerName"></h2>
+        <div id="timer">Time Remaining: <span id="timeRemaining">3:00</span></div>
+        <div id="score">Score: <span id="currentScore">0</span></div>
+        <div id="requiredScore">Required Score: <span id="requiredScoreValue">23</span></div>
+        <div id="puzzlePieceCounter">Puzzle Pieces: <span id="puzzlePiecesCollected">0</span></div>
+        <div id="levelCounter">Level: <span id="currentLevel">1</span></div>
+        <div id="selectedWordDisplay">Selected Word: <span id="selectedWord"></span></div>
+        <div id="gameGrid"></div>
+        <div id="lettersContainer"></div>
+        <div id="wordActions">
+            <button id="submitWord" onclick="submitWord()">Submit</button>
+            <button id="clearWord" onclick="clearWord()">Clear</button>
+            <button id="shuffleLetters" onclick="shuffleLetters()">Shuffle</button>
+            <button id="finishLevel" onclick="finishLevel()">Finish Level</button>
+        </div>
+    </div>
+
+    <!-- Game Over Page -->
+    <div id="gameOver" class="page hidden">
+        <div class="background game-over-bg">
+            <h2>Game Over</h2>
+            <p>Score: <span id="finalScore">0</span></p>
+            <button onclick="restartGame()">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Level Complete Page -->
+    <div id="levelComplete" class="page hidden">
+        <div class="background level-complete-bg">
+            <h2>Congratulations! You found a manuscript!</h2>
+            <p>Puzzle Pieces Collected: <span id="puzzlePiecesCollectedDisplay"></span></p>
+            <img src="https://via.placeholder.com/100" alt="Manuscript" class="puzzle-piece">
+            <button onclick="startNextLevel()">Continue</button>
+        </div>
+    </div>
+
+    <!-- High Scores Page -->
+    <div id="highScores" class="page hidden">
+        <div class="background home-bg">
+            <h2>High Scores</h2>
+            <ul id="highScoresList"></ul>
+            <button onclick="showPage('home')">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
