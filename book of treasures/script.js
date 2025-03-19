@@ -63,22 +63,30 @@ function showPage(pageId) {
 }
 
 function setupGrid() {
-    const gameGrid = document.getElementById("gameGrid");
-    gameGrid.innerHTML = "";
+    const sixLetterGrid = document.getElementById("sixLetterGrid");
+    const fiveLetterGrid = document.getElementById("fiveLetterGrid");
+    const fourLetterGrid = document.getElementById("fourLetterGrid");
+    const threeLetterGrid = document.getElementById("threeLetterGrid");
 
-    // Grid structure: 3 three-letter, 2 four-letter, 1 five-letter, 1 six-letter
-    const wordLengths = [3, 3, 3, 4, 4, 5, 6];
-    wordLengths.forEach(length => {
-        const row = document.createElement("div");
-        row.classList.add("grid-row");
-        for (let i = 0; i < length; i++) {
-            const cell = document.createElement("div");
-            cell.classList.add("letter-box");
-            cell.innerText = "";
-            row.appendChild(cell);
-        }
-        gameGrid.appendChild(row);
-    });
+    sixLetterGrid.innerHTML = "";
+    fiveLetterGrid.innerHTML = "";
+    fourLetterGrid.innerHTML = "";
+    threeLetterGrid.innerHTML = "";
+
+    // Create grids for each word length
+    createGridSection(sixLetterGrid, 6);
+    createGridSection(fiveLetterGrid, 5);
+    createGridSection(fourLetterGrid, 4);
+    createGridSection(threeLetterGrid, 3);
+}
+
+function createGridSection(gridElement, length) {
+    for (let i = 0; i < length; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("letter-box");
+        cell.innerText = "";
+        gridElement.appendChild(cell);
+    }
 }
 
 function generateLetters() {
@@ -124,8 +132,25 @@ async function submitWord() {
 }
 
 function displayWordOnGrid(word) {
-    const gameGrid = document.getElementById("gameGrid");
-    const emptyCells = gameGrid.querySelectorAll(".letter-box:empty");
+    let gridSection;
+    switch (word.length) {
+        case 6:
+            gridSection = document.getElementById("sixLetterGrid");
+            break;
+        case 5:
+            gridSection = document.getElementById("fiveLetterGrid");
+            break;
+        case 4:
+            gridSection = document.getElementById("fourLetterGrid");
+            break;
+        case 3:
+            gridSection = document.getElementById("threeLetterGrid");
+            break;
+        default:
+            return;
+    }
+
+    const emptyCells = gridSection.querySelectorAll(".letter-box:empty");
     if (emptyCells.length >= word.length) {
         for (let i = 0; i < word.length; i++) {
             emptyCells[i].innerText = word[i];
@@ -184,7 +209,7 @@ function gameOver() {
 
 function startNextLevel() {
     currentLevel++;
-    requiredScore += 10; // Increase required score for the next level
+    requiredScore += 0; // Increase required score for the next level
     resetGame();
     showPage("game");
     startTimer();
@@ -198,7 +223,7 @@ function restartGame() {
 }
 
 function saveHighScore() {
-    highScores.push({ name: playerName, score: currentScore });
+    highScores.push({ name: playerName, score: currentScore, puzzlePieces: puzzlePieces });
     highScores.sort((a, b) => b.score - a.score);
     updateHighScores();
 }
@@ -208,7 +233,7 @@ function updateHighScores() {
     highScoresList.innerHTML = "";
     highScores.forEach(entry => {
         const li = document.createElement("li");
-        li.textContent = `${entry.name}: ${entry.score}`;
+        li.textContent = `${entry.name}: ${entry.score} (Puzzle Pieces: ${entry.puzzlePieces})`;
         highScoresList.appendChild(li);
     });
 }
