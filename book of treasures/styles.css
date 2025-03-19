@@ -38,11 +38,11 @@ body {
 }
 
 .level-complete-bg {
-  background-image: url('https://i.ytimg.com/vi/939MUq45g5I/hqdefault.jpg');
+  background-image: url('https://tse4.mm.bing.net/th?id=OIP.wymLBZd6-lu9yKgY7oXQzQHaFj&pid=Api&P=0&h=180');
 }
 
 .game-title {
-  font-size: 60px;
+  font-size: 48px; /* Adjusted for better fit */
   margin-top: 20px;
   text-shadow: 3px 3px 0 #000;
 }
@@ -61,7 +61,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 20px; /* Adjusted for better fit */
   font-family: 'Bangers', cursive;
   text-shadow: 2px 2px 0 #000;
 }
@@ -70,22 +70,48 @@ button:hover {
   background-color: #754c2a;
 }
 
+/* Game Header */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 20px; /* Adjusted for better fit */
+  padding: 0 20px; /* Adjusted for better fit */
+  font-size: 48px; /* Adjusted for better fit */
+  text-shadow: 2px 2px 0 #000;
+}
+
+#timer i, #puzzlePieceCounter i {
+  margin-right: 10px; /* Adjusted for better fit */
+  font-size: 48px; /* Adjusted for better fit */
+}
+
+#timer, #puzzlePieceCounter {
+  font-size: 48px; /* Adjusted for better fit */
+}
+
 /* Game Grid */
-#gameGrid {
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  max-width: 600px;
+#gameGridContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjusted for better fit */
+  margin: 100px auto 20px; /* Adjusted for better fit */
+}
+
+.grid-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Adjusted for better fit */
 }
 
 .letter-box {
-  width: 50px;
-  height: 50px;
+  width: 40px; /* Adjusted for better fit */
+  height: 40px; /* Adjusted for better fit */
   border: 2px solid white;
   text-align: center;
-  line-height: 50px;
-  font-size: 24px;
+  line-height: 40px; /* Adjusted for better fit */
+  font-size: 20px; /* Adjusted for better fit */
   background-color: #333;
   color: white;
   cursor: pointer;
@@ -104,12 +130,12 @@ button:hover {
 }
 
 .letter {
-  width: 50px;
-  height: 50px;
+  width: 50px; /* Adjusted for better fit */
+  height: 50px; /* Adjusted for better fit */
   border: 2px solid white;
   text-align: center;
-  line-height: 50px;
-  font-size: 24px;
+  line-height: 50px; /* Adjusted for better fit */
+  font-size: 24px; /* Adjusted for better fit */
   background-color: #444;
   color: white;
   cursor: pointer;
@@ -128,7 +154,7 @@ button:hover {
 }
 
 #puzzlePieceCounter, #levelCounter, #requiredScore, #selectedWordDisplay {
-  font-size: 24px;
+  font-size: 24px; /* Adjusted for better fit */
   margin-top: 10px;
   text-shadow: 2px 2px 0 #000;
 }
@@ -136,6 +162,8 @@ button:hover {
 .puzzle-piece {
   margin: 20px auto;
   display: block;
+  width: 80px; /* Adjusted for better fit */
+  height: 80px; /* Adjusted for better fit */
 }
 
 #highScoresList {
@@ -144,7 +172,7 @@ button:hover {
 }
 
 #highScoresList li {
-  font-size: 24px;
+  font-size: 20px; /* Adjusted for better fit */
   margin: 10px;
   text-shadow: 2px 2px 0 #000;
 }
