@@ -6,6 +6,7 @@
     <title>The Book of Treasures</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Home Page -->
@@ -24,14 +25,21 @@
 
     <!-- Game Page -->
     <div id="game" class="page hidden">
+        <div class="game-header">
+            <div id="timer"><i class="fas fa-clock"></i> <span id="timeRemaining">3:00</span></div>
+            <div id="puzzlePieceCounter"><i class="fas fa-puzzle-piece"></i> <span id="puzzlePiecesCollected">0</span></div>
+        </div>
         <h2 id="playerName"></h2>
-        <div id="timer">Time Remaining: <span id="timeRemaining">3:00</span></div>
         <div id="score">Score: <span id="currentScore">0</span></div>
         <div id="requiredScore">Required Score: <span id="requiredScoreValue">23</span></div>
-        <div id="puzzlePieceCounter">Puzzle Pieces: <span id="puzzlePiecesCollected">0</span></div>
         <div id="levelCounter">Level: <span id="currentLevel">1</span></div>
         <div id="selectedWordDisplay">Selected Word: <span id="selectedWord"></span></div>
-        <div id="gameGrid"></div>
+        <div id="gameGridContainer">
+            <div class="grid-section" id="sixLetterGrid"></div>
+            <div class="grid-section" id="fiveLetterGrid"></div>
+            <div class="grid-section" id="fourLetterGrid"></div>
+            <div class="grid-section" id="threeLetterGrid"></div>
+        </div>
         <div id="lettersContainer"></div>
         <div id="wordActions">
             <button id="submitWord" onclick="submitWord()">Submit</button>
